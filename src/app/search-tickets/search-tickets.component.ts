@@ -47,6 +47,14 @@ export class SearchTicketsComponent implements OnInit, OnDestroy {
   searchTicket() {
     this.subscription = this.ticketsService.search(this.ticketCode).subscribe(res => {
       this.ticket = res;
+
+      if (this.ticket.problem_description === 1) {
+        this.ticket.problem_description = 'Sistema lento';
+      } else if (this.ticket.problem_description === 2) {
+        this.ticket.problem_description = 'Sem internet';
+      } else {
+        this.ticket.problem_description = 'Recuperar senha';
+      }
     });
   }
 

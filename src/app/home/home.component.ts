@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ThfMenuItem } from '@totvs/thf-ui/components/thf-menu';
-import { ThfToolbarProfile, ThfToolbarAction } from '@totvs/thf-ui/components/thf-toolbar';
-import { AuthService } from '../auth/auth.service';
 import { Router } from '@angular/router';
+
+import { ThfMenuItem } from '@totvs/thf-ui/components/thf-menu';
+import { ThfToolbarAction, ThfToolbarProfile } from '@totvs/thf-ui/components/thf-toolbar';
+
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +14,6 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   readonly items: Array<ThfMenuItem> = [
-    { label: 'Sair', link: 'login', icon: 'thf-icon thf-icon-exit' },
     { label: 'Dashboard', link: 'dashboard', icon: 'thf-icon thf-icon-chart-area' },
     { label: 'Consultar', link: 'search-tickets', icon: 'thf-icon thf-icon-search' },
     { label: 'Novo ticket', link: 'add-tickets', icon: 'thf-icon thf-icon-plus' }
@@ -29,7 +30,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private authService: AuthService, private router: Router) { }
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   private exit() {
     this.authService.clear();

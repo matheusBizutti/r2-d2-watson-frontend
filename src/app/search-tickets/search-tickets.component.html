@@ -27,23 +27,23 @@
   <div class="thf-row thf-mt-4" *ngIf="ticket">
     <thf-container class="thf-ml-1 thf-md-12">
       <div class="thf-row">
-          <thf-info
-            class="thf-md-4"
-            t-label="Nome"
-            [t-value]="ticket.name">
-          </thf-info>
+        <thf-info
+          class="thf-md-4"
+          t-label="Nome"
+          [t-value]="ticket.name">
+        </thf-info>
 
-          <thf-info
-            class="thf-md-4"
-            t-label="Email"
-            [t-value]="ticket.email">
-          </thf-info>
+        <thf-info
+          class="thf-md-4"
+          t-label="Email"
+          [t-value]="ticket.email">
+        </thf-info>
 
-          <thf-info
-            class="thf-md-4"
-            t-label="Data de abertura"
-            [t-value]="formatDate(ticket.date)">
-          </thf-info>
+        <thf-info
+          class="thf-md-4"
+          t-label="Data de abertura"
+          [t-value]="formatDate(ticket.date)">
+        </thf-info>
       </div>
 
       <thf-divider></thf-divider>
@@ -63,6 +63,7 @@
         <thf-textarea
           class="thf-md-12"
           name="description"
+          t-readonly
           [(ngModel)]="ticket.problem_description"
           t-label="Descrição do problema">
         </thf-textarea>

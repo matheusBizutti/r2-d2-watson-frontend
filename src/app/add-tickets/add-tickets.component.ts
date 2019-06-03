@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ThfBreadcrumb, ThfNotificationService } from '@totvs/thf-ui';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ThfBreadcrumb, ThfModalComponent } from '@totvs/thf-ui';
 import { AuthService } from '../auth/auth.service';
 import { Router } from '@angular/router';
 
@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class AddTicketsComponent implements OnInit {
 
+  private ticketCode;
+
   public readonly breadcrumb: ThfBreadcrumb = {
     items: [
       { label: 'Página inicial', link: '/home/dashboard' },
@@ -17,8 +19,9 @@ export class AddTicketsComponent implements OnInit {
     ]
   };
 
+  @ViewChild('modalTicketCode') modalTicketCode: ThfModalComponent;
+
   constructor(private authService: AuthService,
-              private thfNotification: ThfNotificationService,
               private router: Router) { }
 
   ngOnInit() {
@@ -73,7 +76,9 @@ export class AddTicketsComponent implements OnInit {
           }),
         })).json();
 
-        this.thfNotification.success(`Ticket criado, seu código é: ${responseTickets.message}`);
+        this.ticketCode = responseTickets.message;
+
+        this.modalTicketCode.open();
 
         setTimeout(() => {
           this.router.navigate(['/home/dashboard']);
