@@ -1,0 +1,53 @@
+<thf-page-default
+  t-title="Cadastre-se para utilizar a plataforma R2-D2"
+  [t-breadcrumb]="breadcrumb">
+
+  <form #signupPartnersForm="ngForm">
+
+    <div class="thf-row">
+      <thf-input
+        class="thf-md-6"
+        name="name"
+        [(ngModel)]="partnerPersonalData.nickname"
+        t-clean
+        t-icon="thf-icon-user"
+        t-label="Nome"
+        t-required>
+      </thf-input>
+
+      <thf-email
+        class="thf-md-6"
+        name="email"
+        [(ngModel)]="partnerPersonalData.email"
+        t-clean
+        t-icon="thf-icon-user"
+        t-label="Email"
+        t-required>
+      </thf-email>
+    </div>
+
+    <div class="thf-row">
+
+      <thf-password
+        class="thf-lg-6"
+        name="password"
+        [(ngModel)]="partnerPersonalData.password"
+        t-clean
+        t-label="Senha"
+        t-required>
+      </thf-password>
+    </div>
+
+    <div class="thf-row thf-pt-3">
+      <thf-button
+        class="thf-md-4"
+        t-label="Confirmar"
+        t-type="primary"
+        [t-disabled]="signupPartnersForm.invalid"
+        (t-click)="signup();">
+      </thf-button>
+    </div>
+
+  </form>
+
+</thf-page-default>

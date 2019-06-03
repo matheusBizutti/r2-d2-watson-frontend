@@ -1,0 +1,22 @@
+<thf-page-default
+  t-title="Dashboard"
+  [t-breadcrumb]="breadcrumb">
+
+  <div class="thf-row thf-pl-4 thf-pt-4">
+    <div class="tickets thf-clickable consult-tickes-color thf-mr-4 thf-mb-4"
+      (click)="navigateTo('home/search-tickets')">
+      <div class="tickets-text margin-text thf-text-center">Consultar</div>
+    </div>
+
+    <div class="tickets thf-clickable open-tickets-color thf-mr-4 thf-mb-4"
+      (click)="navigateTo('home/add-tickets')">
+      <div class="tickets-text margin-text thf-text-center">Novo Ticket</div>
+    </div>
+
+    <div class="tickets count-tickets-color">
+      <div class="tickets-text margin-text thf-text-center">{{totalTickets}}</div>
+      <div class="tickets-text-subitem thf-text-center">TICKETS EM ABERTO</div>
+    </div>
+  </div>
+</thf-page-default>
+
